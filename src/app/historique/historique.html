@@ -1,0 +1,21 @@
+<div class="historique">
+  <h2>📜 Dernières parties</h2>
+
+  <!-- La directive *ngFor génère automatiquement une carte pour chaque partie du tableau.-->
+  <div class="partie-card" *ngFor="let partie of parties">
+    <div class="partie-info">
+      <span class="partie-map">🗺️ {{ partie.map }}</span>
+      <span class="partie-date">{{ partie.date }}</span>
+    </div>
+
+    <!--ngClass applique une classe CSS différente selon si la partie est une victoire ou une défaite.-->
+    <div class="partie-stats">
+      <span class="kills">⚔️ {{ partie.kills }} kills</span>
+      <span class="morts">💀 {{ partie.morts }} morts</span>
+      <span class="duree">⏱️ {{ partie.duree }}</span>
+      <span class="resultat" [ngClass]="partie.victoire ? 'victoire' : 'defaite'">
+        {{ partie.victoire ? '🏆 Victoire' : '💔 Défaite' }}
+      </span>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,56 @@
+<!--Création de la carte du joueur-->
+<div class="carte-joueur">
+  <div class="avatar">🧙</div>
+  
+  <!--L'interpolation permet d'afficher directement la valeur d'une variable Ts dans le HTML.-->
+  <h2 class="nom">{{ joueur.nom }}</h2>
+  <p class="classe">{{ joueur.classe }}</p>
+
+  <!--Ajout des pv et pv max.-->
+  <div class="barre-pv">
+    <div class="barre-label">
+      <span>❤️ PV</span>
+      <span>{{ joueur.pv }} / {{ joueur.pvMax }}</span>
+    </div>
+
+     <!--Property binding permet de calculer la largeur de la barre de PV.-->
+    <div class="barre-fond">
+      <div class="barre-remplissage" 
+           [style.width.%]="(joueur.pv / joueur.pvMax) * 100">
+      </div>
+    </div>
+
+    <!--L'event binding permet d'appeler automatiquement la méthode Ts dès lorsque l'utilisateur clique.-->
+    <!--Création des boutons dégats et santé.-->
+    <div class="boutons">
+  <button class="btn-degats" (click)="recevoirDegats()">
+    ⚔️ Recevoir des dégâts
+  </button>
+  <div class="etat" [ngClass]="getEtat()">
+  {{ getMessageEtat() }}
+</div> 
+  <button class="btn-soin" (click)="soigner()">
+    ❤️ Se soigner
+  </button>
+</div>
+  </div>
+<!--Ajout des statistiques.-->
+  <div class="stats">
+    <div class="stat">
+      <span class="stat-label">⚔️ Niveau</span>
+      <span class="stat-valeur">{{ joueur.niveau }}</span>
+    </div>
+    <div class="stat">
+      <span class="stat-label">✨ XP</span>
+      <span class="stat-valeur">{{ joueur.xp }}</span>
+    </div>
+    <div class="stat">
+      <span class="stat-label">💀 Kills</span>
+      <span class="stat-valeur">{{ joueur.kills }}</span>
+    </div>
+    <div class="stat">
+      <span class="stat-label">🏆 Rang</span>
+      <span class="stat-valeur">{{ joueur.rang }}</span>
+    </div>
+  </div>
+</div>
