@@ -1,12 +1,14 @@
 import { Component } from '@angular/core';
-import { JoueurCardComponent } from './joueur-card/joueur-card';
-import { HistoriqueComponent } from './historique/historique';
-import { ClassementComponent } from './classement/classement';
+import { RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [JoueurCardComponent, HistoriqueComponent, ClassementComponent],
+  imports: [
+    RouterOutlet,
+    RouterLink,
+    RouterLinkActive
+  ],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })

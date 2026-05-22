@@ -1,0 +1,19 @@
+<div class="classement-api">
+  <h2>🏆 Classement en direct</h2>
+
+  <div class="chargement" *ngIf="chargement">
+    ⏳ Chargement des données...
+  </div>
+
+  <div class="joueur-ligne" *ngFor="let joueur of joueurs; let i = index"
+       [ngClass]="i === 0 ? 'premier' : i === 1 ? 'deuxieme' : i === 2 ? 'troisieme' : ''">
+
+    <span class="position">
+      {{ i === 0 ? '🥇' : i === 1 ? '🥈' : i === 2 ? '🥉' : '#' + (i + 1) }}
+    </span>
+    <span class="joueur-nom">{{ joueur.nom }}</span>
+    <span class="joueur-classe">{{ joueur.classe }}</span>
+    <span class="joueur-score">{{ joueur.score }} pts</span>
+    <span class="joueur-kills">⚔️ {{ joueur.kills }}</span>
+  </div>
+</div>

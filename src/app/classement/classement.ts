@@ -12,7 +12,7 @@ import { CommonModule } from '@angular/common';
 //Ajout du classement des différents joueurs.
 export class ClassementComponent {
   joueurs = [
-    { nom: 'Sofinotte', classe: 'Mage', score: 18850, kills: 378 },
+    { nom: 'Sofinotte', classe: 'Mage', score: 18850, kills: 712 },
     { nom: 'DragonSlayer', classe: 'Guerrier', score: 15420, kills: 282 },
     { nom: 'ShadowArcher', classe: 'Archer', score: 11200, kills: 245 },
     { nom: 'IronShield', classe: 'Paladin', score: 9800, kills: 198 },

@@ -29,3 +29,43 @@ p {
   color: #888;
   margin-bottom: 2rem;
 }
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #0d0d1a;
+  padding: 1rem 2rem;
+  border-bottom: 1px solid #a78bfa;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.nav-logo {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #a78bfa;
+  text-shadow: 0 0 10px #a78bfa;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-links a {
+  color: #888;
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: color 0.2s;
+}
+
+.nav-links a:hover {
+  color: #a78bfa;
+}
+
+.nav-links a.active {
+  color: #a78bfa;
+  font-weight: bold;
+}

@@ -1,8 +1,9 @@
-<div class="dashboard">
-  <h1>🎮 GameDashboard</h1>
-  <p>Bienvenue sur ton tableau de bord !</p>
+<nav class="navbar">
+  <span class="nav-logo">🎮 GameDashboard</span>
+  <div class="nav-links">
+    <a routerLink="/">🏠 Accueil</a>
+    <a routerLink="/classement">🏆 Classement</a>
+  </div>
+</nav>
 
-  <app-joueur-card></app-joueur-card>
-  <app-historique></app-historique>
-  <app-classement></app-classement>
-</div>
+<router-outlet></router-outlet>
