@@ -1,4 +1,10 @@
-html, body {
-  background-color: #0d0d1a !important;
+body {
+  background-color: #0d0d1a;
+  color: #ffffff;
+  font-family: 'Rajdhani', sans-serif;
   min-height: 100vh;
+}
+
+h1, h2, .nav-logo {
+  font-family: 'Press Start 2P', cursive;
 }

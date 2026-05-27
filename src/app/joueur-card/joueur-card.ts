@@ -14,7 +14,7 @@ export class JoueurCardComponent {
     nom: 'Sofinotte',
     classe: 'Mage',
     niveau: 42,
-    pv: 80,
+    pv: 50,
     pvMax: 100,
     xp: 8750,
     kills: 312,
@@ -23,7 +23,7 @@ export class JoueurCardComponent {
 
   recevoirDegats() {
     if (this.joueur.pv > 0) {
-      this.joueur.pv -= 10;
+      this.joueur.pv -= 20;
       if (this.joueur.pv < 0) this.joueur.pv = 0;
     }
   }
