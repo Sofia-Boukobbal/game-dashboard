@@ -1,4 +1,16 @@
 <div class="dashboard">
-  <app-joueur-card></app-joueur-card>
-  <app-historique></app-historique>
+  <div class="dashboard-header">
+    <h1>🎮 GameDashboard</h1>
+    <p>Bienvenue sur ton tableau de bord de joueur</p>
+  </div>
+
+  <div class="dashboard-grid">
+    <div class="grid-left">
+      <app-joueur-card [joueur]="joueur"></app-joueur-card>
+      <app-edit-joueur (joueurModifie)="onJoueurModifie($event)"></app-edit-joueur>
+    </div>
+    <div class="grid-right">
+      <app-historique></app-historique>
+    </div>
+  </div>
 </div>

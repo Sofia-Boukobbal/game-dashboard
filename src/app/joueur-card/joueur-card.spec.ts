@@ -1,22 +1,53 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { Component, Input } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
-import { JoueurCardComponent } from './joueur-card';
+@Component({
+  selector: 'app-joueur-card',
+  standalone: true,
+  imports: [CommonModule],
+  templateUrl: './joueur-card.html',
+  styleUrl: './joueur-card.css'
+})
+export class JoueurCardComponent {
 
-describe('JoueurCard', () => {
-  let component: JoueurCardComponent;
-  let fixture: ComponentFixture<JoueurCardComponent>;
-  
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      imports: [JoueurCardComponent],
-    }).compileComponents();
+  @Input() joueur: any = {
+    nom: 'Sofinotte',
+    classe: 'Mage',
+    niveau: 42,
+    pv: 80,
+    pvMax: 100,
+    xp: 8750,
+    kills: 312,
+    rang: 'Or'
+  };
 
-    fixture = TestBed.createComponent(JoueurCardComponent);
-    component = fixture.componentInstance;
-    await fixture.whenStable();
-  });
+  recevoirDegats() {
+    if (this.joueur.pv > 0) {
+      this.joueur.pv -= 10;
+      if (this.joueur.pv < 0) this.joueur.pv = 0;
+    }
+  }
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
-});
+  soigner() {
+    if (this.joueur.pv < this.joueur.pvMax) {
+      this.joueur.pv += 10;
+      if (this.joueur.pv > this.joueur.pvMax) this.joueur.pv = this.joueur.pvMax;
+    }
+  }
+
+  getEtat() {
+    const pourcentage = (this.joueur.pv / this.joueur.pvMax) * 100;
+    if (pourcentage <= 0) return 'etat-mort';
+    if (pourcentage <= 30) return 'etat-danger';
+    if (pourcentage <= 60) return 'etat-blesse';
+    return 'etat-bon';
+  }
+
+  getMessageEtat() {
+    const pourcentage = (this.joueur.pv / this.joueur.pvMax) * 100;
+    if (pourcentage <= 0) return '💀 Personnage KO !';
+    if (pourcentage <= 30) return '🚨 En danger !';
+    if (pourcentage <= 60) return '🤕 Blessé...';
+    return '💪 En pleine forme !';
+  }
+}

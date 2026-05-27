@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -8,21 +8,19 @@ import { CommonModule } from '@angular/common';
   templateUrl: './joueur-card.html',
   styleUrl: './joueur-card.css'
 })
-
-// Ajout des données du joueur.
 export class JoueurCardComponent {
-  joueur = {
+
+  @Input() joueur: any = {
     nom: 'Sofinotte',
     classe: 'Mage',
     niveau: 42,
     pv: 80,
-    pvMax: 100, //pv maximum du joueur.
+    pvMax: 100,
     xp: 8750,
     kills: 312,
     rang: 'Or'
   };
 
-  //Cette methode retire 10 pv au joueur.
   recevoirDegats() {
     if (this.joueur.pv > 0) {
       this.joueur.pv -= 10;
@@ -30,7 +28,6 @@ export class JoueurCardComponent {
     }
   }
 
-  //Cette méthode ajoute 20 pv au joueur.
   soigner() {
     if (this.joueur.pv < this.joueur.pvMax) {
       this.joueur.pv += 20;
@@ -38,7 +35,6 @@ export class JoueurCardComponent {
     }
   }
 
-  //On ajoute ici l'état du joueur en fonction de son nombre de pv restants.
   getEtat() {
     const pourcentage = (this.joueur.pv / this.joueur.pvMax) * 100;
     if (pourcentage <= 0) return 'etat-mort';
@@ -47,12 +43,22 @@ export class JoueurCardComponent {
     return 'etat-bon';
   }
 
-  // On ajoute un petit commentaire a chaquer changement d'état du joueur.
   getMessageEtat() {
     const pourcentage = (this.joueur.pv / this.joueur.pvMax) * 100;
-    if (pourcentage <= 0) return '💀  KO !';
+    if (pourcentage <= 0) return '💀 Personnage KO !';
     if (pourcentage <= 30) return '🚨 En danger !';
     if (pourcentage <= 60) return '🤕 Blessé...';
     return '💪 En pleine forme !';
   }
+
+  getAvatar() {
+  switch (this.joueur.classe) {
+    case 'Guerrier': return '⚔️';
+    case 'Mage': return '🧙';
+    case 'Archer': return '🏹';
+    case 'Paladin': return '🛡️';
+    case 'Assassin': return '🗡️';
+    default: return '🎮';
+  }
+}
 }

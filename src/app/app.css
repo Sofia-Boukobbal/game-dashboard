@@ -10,36 +10,17 @@ body {
   font-family: 'Segoe UI', sans-serif;
 }
 
-.dashboard {
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 2rem;
-}
-
-h1 {
-  font-size: 2.5rem;
-  color: #a78bfa;
-  text-align: center;
-  margin-bottom: 0.5rem;
-  text-shadow: 0 0 20px #a78bfa;
-}
-
-p {
-  text-align: center;
-  color: #888;
-  margin-bottom: 2rem;
-}
-
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #0d0d1a;
+  background: rgba(13, 13, 26, 0.95);
   padding: 1rem 2rem;
   border-bottom: 1px solid #a78bfa;
   position: sticky;
   top: 0;
   z-index: 100;
+  backdrop-filter: blur(10px);
 }
 
 .nav-logo {
@@ -59,13 +40,26 @@ p {
   text-decoration: none;
   font-size: 0.95rem;
   transition: color 0.2s;
+  padding: 6px 14px;
+  border-radius: 8px;
+  border: 1px solid transparent;
 }
 
 .nav-links a:hover {
   color: #a78bfa;
+  border-color: #a78bfa;
+  background: rgba(167, 139, 250, 0.1);
 }
 
 .nav-links a.active {
   color: #a78bfa;
   font-weight: bold;
+  border-color: #a78bfa;
+  background: rgba(167, 139, 250, 0.1);
+}
+
+.dashboard {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 2rem;
 }

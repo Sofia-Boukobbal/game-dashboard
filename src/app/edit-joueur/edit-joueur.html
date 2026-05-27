@@ -1,0 +1,54 @@
+<div class="formulaire">
+  <h2>✏️ Modifier les stats</h2>
+
+  <div class="champ">
+    <label>Nom du joueur</label>
+    <input type="text" [(ngModel)]="joueur.nom" placeholder="Nom du joueur" />
+  </div>
+
+  <div class="champ">
+    <label>Classe</label>
+    <select [(ngModel)]="joueur.classe">
+      <option value="Mage">🧙 Mage</option>
+      <option value="Guerrier">⚔️ Guerrier</option>
+      <option value="Archer">🏹 Archer</option>
+      <option value="Paladin">🛡️ Paladin</option>
+      <option value="Assassin">🗡️ Assassin</option>
+    </select>
+  </div>
+
+  <div class="champ">
+    <label>Niveau</label>
+    <input type="number" [(ngModel)]="joueur.niveau" min="1" max="100" />
+  </div>
+
+  <div class="champ">
+    <label>PV Maximum</label>
+    <input type="number" [(ngModel)]="joueur.pvMax" min="1" max="500" />
+  </div>
+
+  <div class="champ">
+    <label>XP</label>
+    <input type="number" [(ngModel)]="joueur.xp" min="0" />
+  </div>
+
+  <div class="champ">
+    <label>Kills</label>
+    <input type="number" [(ngModel)]="joueur.kills" min="0" />
+  </div>
+
+  <div class="champ">
+    <label>Rang</label>
+    <select [(ngModel)]="joueur.rang">
+      <option value="Bronze">🥉 Bronze</option>
+      <option value="Argent">🥈 Argent</option>
+      <option value="Or">🥇 Or</option>
+      <option value="Platine">💎 Platine</option>
+      <option value="Diamant">💠 Diamant</option>
+    </select>
+  </div>
+
+  <button class="btn-sauvegarder" (click)="sauvegarder()">
+    💾 Sauvegarder
+  </button>
+</div>

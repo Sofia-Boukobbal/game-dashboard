@@ -1,22 +1,18 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { Component } from '@angular/core';
+import { JoueurCardComponent } from '../joueur-card/joueur-card';
+import { HistoriqueComponent } from '../historique/historique';
+import { EditJoueurComponent } from '../edit-joueur/edit-joueur';
 
-import { Accueil } from './accueil';
+@Component({
+  selector: 'app-accueil',
+  standalone: true,
+  imports: [JoueurCardComponent, HistoriqueComponent, EditJoueurComponent],
+  templateUrl: './accueil.html',
+  styleUrl: './accueil.css'
+})
+export class AccueilComponent {
 
-describe('Accueil', () => {
-  let component: Accueil;
-  let fixture: ComponentFixture<Accueil>;
-
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      imports: [Accueil],
-    }).compileComponents();
-
-    fixture = TestBed.createComponent(Accueil);
-    component = fixture.componentInstance;
-    await fixture.whenStable();
-  });
-
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
-});
+  onJoueurModifie(joueur: any) {
+    console.log('Joueur modifié :', joueur);
+  }
+}

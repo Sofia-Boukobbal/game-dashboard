@@ -1,17 +1,17 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ClassementApi } from './classement-api';
+import { ClassementApiComponent } from './classement-api';
 
 describe('ClassementApi', () => {
-  let component: ClassementApi;
-  let fixture: ComponentFixture<ClassementApi>;
+  let component: ClassementApiComponent;
+  let fixture: ComponentFixture<ClassementApiComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ClassementApi],
+      imports: [ClassementApiComponent],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(ClassementApi);
+    fixture = TestBed.createComponent(ClassementApiComponent);
     component = fixture.componentInstance;
     await fixture.whenStable();
   });
